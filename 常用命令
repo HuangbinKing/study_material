@@ -1,0 +1,23 @@
+服务器执行licenses：
+lmgrd -c /home/hbking/apps/synopsys/licenses/Synopsys.dat &
+看波形命令：
+dve -full64 -vpd ./wave.vpd
+makefrag问题：
++plusarg_save
++vcdplusfile=wave.vpd
+代码注意书写格式，中间需要按tab按键补齐空白
+
+2015版本的verdi出现的问题：
+1.NOVAS_HOME变量未配置，由于此前verdi未属于synopsys公司，2016版及其之后的版本配置环境变量没有这个问题。
+2.库文件不存在，需要搜索并下载：dnf search libpng(关键字)
+3.sudo dnf install libpng12（缺少的库文件）也可用于下载其他文件
+verdi指令：verdi -f list.f  -ssf newwave.fsdb
+
+list.f是源文件的目录集合
+利用find ../src/main/resources/vsrc/ -name "*.v" >list.f 
+在相应的目录寻找.v文件，记录在list.f文件中
+
+make clean 清楚缓存文件
+clear清除命令行的内容
+
+linux系统下的vivado需要source一下源文件或者添加环境变量。
